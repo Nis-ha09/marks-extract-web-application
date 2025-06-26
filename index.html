@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Extractor</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Combined Graduate Level Examination Marks Extractor</h1>
+        
+        <!-- URL Input Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="mb-4">
+                <label for="resultUrl" class="block text-gray-700 font-semibold mb-2">Enter Result URL</label>
+                <input type="text" id="resultUrl" class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter the result URL here...">
+            </div>
+            <button id="extractButton" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition-colors">Extract Marks</button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="bg-white rounded-lg shadow-md p-6 hidden">
+            <!-- Student Details -->
+            <div class="mb-6">
+                <h2 class="text-xl font-semibold mb-4">Student Details</h2>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <p class="text-gray-600">Roll Number: <span id="rollNumber" class="font-medium text-gray-800"></span></p>
+                        <p class="text-gray-600">Name: <span id="studentName" class="font-medium text-gray-800"></span></p>
+                    </div>
+                    <div>
+                        <p class="text-gray-600">Venue: <span id="venue" class="font-medium text-gray-800"></span></p>
+                        <p class="text-gray-600">Exam Date: <span id="examDate" class="font-medium text-gray-800"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marks Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-50">
+                            <th class="px-4 py-2 text-left">Subject</th>
+                            <th class="px-4 py-2 text-center">Attempted</th>
+                            <th class="px-4 py-2 text-center">Not Attempted</th>
+                            <th class="px-4 py-2 text-center">Right</th>
+                            <th class="px-4 py-2 text-center">Wrong</th>
+                            <th class="px-4 py-2 text-center">Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="marksTableBody">
+                        <!-- Marks data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Export Button -->
+            <div class="mt-6 flex justify-end">
+                <button id="exportButton" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 transition-colors">
+                    Export to CSV
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
